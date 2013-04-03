@@ -1,18 +1,21 @@
 # Path
 export PATH=$HOME/bin:/bin:/opt/local/bin:/opt/local/sbin:/sbin:/usr/X11/bin:/usr/bin:/usr/local/MacGPG2/bin:/usr/local/bin:/usr/sbin:/Users/amybowen/support-scripts:$PATH
 
-# Load shell dotfiles
-for file in ~/.{bash_prompt,bash_aliases,bash_functions,bash_exports}; do
-	[ -r "$file" ] && source "$file"
-done
-unset file
+# Sources
+source ~/.bash_prompt
+source ~/.bash_aliases
+source ~/.bash_exports
+source ~/.gandirc	#	\o/	
 
-shopt -s nocaseglob # Case-insensitive globbing (used in pathname expansion)
-shopt -s histappend # Append to the Bash history file rather than overwriting it
-shopt -s cmdhist  # multiline commands saved in history as oneliners
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
+fi
 
+### Options
+shopt -s nocaseglob 	# Case-insensitive globbing (used in pathname expansion)
+shopt -s histappend 	# Append to the Bash history file rather than overwriting it
+shopt -s cmdhist  	# multiline commands saved in history as oneliners
 
-# 
 # Hoard
 HISTSIZE=5000
 HISTFILESIZE=50000
@@ -44,13 +47,4 @@ bind '"\e[B":history-search-forward'
 #  OTHER STUFF
 #------------------------------------------------------------------------------------------
 
-# Tell ls to be colourful
-export CLICOLOR=1
-
-# Tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
-
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
-fi
 
