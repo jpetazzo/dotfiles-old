@@ -12,21 +12,29 @@ status_style=$reset_style'\[\033[0;35m\]' # purple color
 # prompt_style=$reset_style <== BACKUP
 prompt_style=$reset_style'\[\033[0;32m\]'
 
-
 #------------------------------------------------------------------------------------------
 #  TYPING COLOR (a.k.a. command_style)
 #------------------------------------------------------------------------------------------
 
 command_style=$reset_style'\[\033[1;33m\]' # whitish-yellow
 
+#------------------------------------------------------------------------------------------
+#  Elements to include in separator line
+#------------------------------------------------------------------------------------------
+
+PWD_SHORT=$(echo -n $PWD | sed -e "s/\/Users\/$USER/\~/ " )	# Use ~ for homedir
+LINE_CONTENTS_HEAD="|---[ $PWD_SHORT ]---"
+LINE_CONTENTS_TAIL="---[ $USER@$HOSTNAME ]---[ $(date +%H:%M:%S) ]---|"
+PADDING="11" 		# Some stuff doesn't get counted correctly
+LINEWC=$((${#PWD_SHORT} + ${#LINE_CONTENTS_TAIL} + $PADDING)) 	# Count number of characters to adjust line length
 
 #------------------------------------------------------------------------------------------
-#  PROMPT (a.k.a. PS1)
+#  PROMPT (PS1)
 #------------------------------------------------------------------------------------------
 
 # Prompt variable: 
 # \u=username; \h=hostname; \w=absolute path
-PS1="$status_style"'$fill \t\n'"$prompt_style"'${debian_chroot:+($debian_chroot)}\u@\h:\w\$'"$command_style "
+PS1=$status_style$LINE_CONTENTS_HEAD$fill$LINE_CONTENTS_TAIL'\n'"$prompt_style"'${debian_chroot:+($debian_chroot)}\$'"$command_style "
 
 # (this one is invoked every time before a command is executed):
 trap 'echo -ne "\033[00m"' DEBUG
@@ -35,23 +43,22 @@ trap 'echo -ne "\033[00m"' DEBUG
 #  SEPARATOR LINE
 #------------------------------------------------------------------------------------------
 
-# Fill with minuses
+# Fill with dashes
 # (this is recalculated every time the prompt is shown in function prompt_command):
 
 fill="--- "
 reset_style='\[\033[00m\]'
 
 function prompt_command {
-# create a $fill of all screen width minus the time string and a space:
-	let fillsize=${COLUMNS}-9
+# create a $fill equal to screen width minus the variables in separator line:
+	let fillsize=${COLUMNS}-$LINEWC
 	fill=""
 	while [ "$fillsize" -gt "0" ]
 		do
-		fill="-${fill}" # fill with underscores/hyphens/tildes to work on
+		fill="-${fill}" # fill with underscores/hyphens/tildes/whatever
 		let fillsize=${fillsize}-1
 	done
 	}
 
 PROMPT_COMMAND=prompt_command
-
 

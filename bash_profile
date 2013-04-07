@@ -1,5 +1,5 @@
 # Path
-export PATH=$HOME/bin:/bin:/opt/local/bin:/opt/local/sbin:/sbin:/usr/X11/bin:/usr/bin:/usr/local/MacGPG2/bin:/usr/local/bin:/usr/sbin:/Users/amybowen/support-scripts:$PATH
+export PATH=$HOME/bin:/bin:/opt/local/bin:/opt/local/sbin:/sbin:/usr/X11/bin:/usr/bin:/usr/local/MacGPG2/bin:/usr/local/bin:/usr/sbin:~/support-scripts/mbin:/usr/local/sbin:$PATH
 
 # Sources
 source ~/.bash_prompt
