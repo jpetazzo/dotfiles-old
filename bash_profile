@@ -1,6 +1,3 @@
-# Path
-# export PATH=$HOME/bin:/bin:/opt/local/bin:/opt/local/sbin:/sbin:/usr/X11/bin:/usr/bin:/usr/local/MacGPG2/bin:/usr/local/bin:/usr/sbin:~/support-scripts/mbin:/usr/local/sbin:$PATH
-# Moved to bash_path
 
 # Sources
 source ~/.bash_prompt
@@ -8,6 +5,9 @@ source ~/.bash_aliases
 source ~/.bash_exports
 source ~/.gandirc	#	\o/	
 source ~/.bash_path
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+
+export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
 
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion

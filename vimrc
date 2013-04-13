@@ -54,8 +54,14 @@ set laststatus=2
 " KEYBINDINGS
 
 " map CTRL-K to end-of-line delete
-" imap <C-k> <esc>d$<del>
-" imap <C-k> <C-c>
+imap <C-k> <esc>d$<del>
+imap <C-k> <C-c>
 
-imap "\eOF": end-of-line
+" imap "\eOF": end-of-line
 "\e[F": end-of-line
+
+
+" Fix home and end in Terminal.app
+" end  \033OF
+" home \033OH
+
