@@ -5,9 +5,13 @@ source ~/.bash_aliases
 source ~/.bash_exports
 source ~/.gandirc	#	\o/	
 source ~/.bash_path
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+# source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+source ~/.bash_powerline
 
-export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+# export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+
+# http://askubuntu.com/questions/125526/vim-in-tmux-display-wrong-colors
+export TERM="xterm-256color"
 
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
@@ -19,8 +23,8 @@ shopt -s histappend 	# Append to the Bash history file rather than overwriting i
 shopt -s cmdhist  	# multiline commands saved in history as oneliners
 
 # Hoard
-HISTSIZE=5000
-HISTFILESIZE=50000
+HISTSIZE=10000
+HISTFILESIZE=100000
 
 # Use vi command editing mode
 set -o vi
