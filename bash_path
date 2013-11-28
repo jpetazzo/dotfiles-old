@@ -15,3 +15,4 @@ PATH=$PATH:/usr/local/sbin
 PATH=$PATH:~/support-scripts/mbin
 PATH=$PATH:/usr/local/share/python
 PATH=$PATH:/usr/local/lib/python2.7/site-packages
+PATH=$PATH:~/GitHub/horton

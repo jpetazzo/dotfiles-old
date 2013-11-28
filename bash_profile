@@ -5,11 +5,10 @@ source ~/.bash_aliases
 source ~/.bash_exports
 source ~/.gandirc	#	\o/	
 source ~/.bash_path
-# source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-source ~/.bash_powerline
+# source ~/.bash_powerline # Uncomment to reenable powerline
 
 # export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
-
+# source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 # http://askubuntu.com/questions/125526/vim-in-tmux-display-wrong-colors
 export TERM="xterm-256color"
 
