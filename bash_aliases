@@ -15,6 +15,7 @@ alias mkdir='mkdir -v'
 alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lr='ls -latr' # Sort by last updated file, most recently updated last
 
 alias which='type -a'			# More helpful which
 alias duf='du -sk * | sort -nr | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'''
