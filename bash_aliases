@@ -6,9 +6,10 @@ alias reload='. ~/.zshrc'		# Make zsh profile changes take effect immediately
 
 
 # Don't do something you regret.
-alias rm='rm -i' 
+# alias rm='rm -i' 
+alias rm='echo "rm is disabled, use trash or /bin/rm instead."'
 alias cp='cp -i'
-alias mv='mv -i'
+alias mv='mv -vi'
 
 alias mkdir='mkdir -v'
 
