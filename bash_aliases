@@ -6,15 +6,17 @@ alias reload='. ~/.zshrc'		# Make zsh profile changes take effect immediately
 
 
 # Don't do something you regret.
-alias rm='rm -i' 
+# alias rm='rm -i' 
+alias rm='echo "rm is disabled, use trash or /bin/rm instead."'
 alias cp='cp -i'
-alias mv='mv -i'
+alias mv='mv -vi'
 
 alias mkdir='mkdir -v'
 
 alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lr='ls -latr' # Sort by last updated file, most recently updated last
 
 alias which='type -a'			# More helpful which
 alias duf='du -sk * | sort -nr | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'''
