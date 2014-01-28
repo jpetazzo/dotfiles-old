@@ -44,11 +44,10 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-
-source ~/dotfiles/bash_aliases
-source ~/dotfiles/gandirc
-source ~/dotfiles/bash_path
-source ~/dotfiles/bash_exports
+# Load all *.sh files in order.
+# (To disable a file, just rename it so that it won't end with .sh)
+for RC in ~/dotfiles/*.sh
+do source $RC
+done
 
 # to-do: http://superuser.com/questions/446594/separate-up-arrow-lookback-for-local-and-global-zsh-history/691603#691603
